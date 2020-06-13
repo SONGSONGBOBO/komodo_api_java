@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.songbo.server.mapper.RewardsMapper">
+    <resultMap id="BaseResultMap" type="com.songbo.server.entity.Rewards">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="rewards_id" jdbcType="INTEGER" property="rewardsId" />
+        <result column="rewards_addr" jdbcType="VARCHAR" property="rewardsAddr" />
+        <result column="rewards_name" jdbcType="VARCHAR" property="rewardsName" />
+        <result column="rewards_message" jdbcType="VARCHAR" property="rewardsMessage" />
+        <result column="rewards_status" jdbcType="INTEGER" property="rewardsStatus" />
+    </resultMap>
+    <insert parameterType="com.songbo.server.entity.Rewards" keyProperty="rewards_id" useGeneratedKeys="true" id="createRewards">
+        insert into rewards(rewards_name, rewards_addr, rewards_message, rewards_status)
+        values(#{name}, #{addr}, #{message}, #{status})
+    </insert>
+</mapper>

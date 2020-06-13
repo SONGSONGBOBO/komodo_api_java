@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.songbo.server.mapper.AddressMapper">
+
+  <resultMap id="BaseResultMap" type="com.songbo.server.entity.Address">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="addr_id" jdbcType="INTEGER" property="addrId" />
+    <result column="addr_name" jdbcType="VARCHAR" property="addrName" />
+    <result column="addr_create_time" jdbcType="VARCHAR" property="addrCreateTime" />
+    <result column="addr_account_id" jdbcType="INTEGER" property="addrAccountId" />
+  </resultMap>
+  <select id="getAddrsByAccountId" resultType="com.songbo.server.entity.Address">
+    select
+           d.*
+    from   account a, address d
+    where a.account_id = d.addr_account_id
+    and a.account_id = #{id}
+  </select>
+
+</mapper>

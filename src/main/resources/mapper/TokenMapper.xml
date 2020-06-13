@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.songbo.server.mapper.TokenMapper">
+    <resultMap id="BaseResultMap" type="com.songbo.server.entity.Token">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="token_id" jdbcType="INTEGER" property="tokenId" />
+        <result column="token_id" jdbcType="VARCHAR" property="tokenName" />
+        <result column="token_txid" jdbcType="VARCHAR" property="tokenTxid" />
+    </resultMap>
+    <select id="getTokenByTokenTxid" resultType="com.songbo.server.entity.Token">
+        select *
+        from token
+        where token.token_txid = #{txid};
+    </select>
+    <select id="getTokenList" resultType="com.songbo.server.entity.Token">
+        select *
+        from token
+    </select>
+    <select id="getTokenById" resultType="com.songbo.server.entity.Token">
+        select *
+        from token
+        where token.token_id = #{id}
+    </select>
+
+</mapper>

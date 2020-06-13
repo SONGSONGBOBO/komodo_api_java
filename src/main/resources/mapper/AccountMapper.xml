@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.songbo.server.mapper.AccountMapper">
+
+  <resultMap id="BaseResultMap" type="com.songbo.server.entity.Account">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="account_pwd" jdbcType="VARCHAR" property="accountPwd" />
+    <result column="account_create_time" jdbcType="VARCHAR" property="accountCreateTime" />
+    <collection ofType="com.songbo.server.entity.Address" property="addressList">
+      <id column="addr_id" jdbcType="INTEGER" property="addrId" />
+      <result column="addr_name" jdbcType="VARCHAR" property="addrName" />
+      <result column="addr_create_time" jdbcType="VARCHAR" property="addrCreateTime" />
+      <result column="addr_account_id" jdbcType="INTEGER" property="addrAccountId" />
+    </collection>
+  </resultMap>
+  <delete id="deleteAccount">
+    delete
+    from account
+    where account.account_id = #{id}
+  </delete>
+  <select id="getAccountByName" resultType="com.songbo.server.entity.Account">
+      select *
+      from account
+      where account.account_name = #{name}
+    </select>
+    <select id="getPwdByName" resultType="java.lang.String">
+      select account.account_pwd
+      from account
+      where account.account_name = #{name}
+    </select>
+    <select id="getAccountListByPage" resultMap="BaseResultMap">
+      select a.*, d.*
+      from account a
+      left join address d
+      on a.account_id = d.addr_account_id
+      where a.account_status = #{status}
+    </select>
+  <select id="getAccountById" resultType="com.songbo.server.entity.Account">
+    select *
+    from account
+    where account.account_id = #{id}
+  </select>
+
+
+</mapper>
