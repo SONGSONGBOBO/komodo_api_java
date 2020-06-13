@@ -8,30 +8,13 @@ package com.songbo.server.utils;
  **/
 public class RPCRequestParams {
 
-    //2:
-/*    public final static String NODE_LOGIN = "user2093232109";
-    public final static String NODE_PASS = "pass1e87a3b95c4efd3a6521ce364e69c8e8f3d512cb0546880216d56f4bbe684fe37a";*/
-    //1:
-    public final static String NODE_LOGIN = "user1142398450";
-    public final static String NODE_PASS = "passfc998a78368d32d9b7eaec150cded8771f53161298ee49179b6f3835a7346c1944";
-    //public final static String NODE_ADDRESS = "http://172.104.191.125:21331";
-    //2:
-    /*public final static String NODE_ADDRESS = "http://45.77.249.65:56689";
-    public final static String NODE_ADDRESS_STANDBY = "http://172.104.191.125:48903";*/
-    //1:
-
-    public final static String NODE_ADDRESS = "http://139.180.128.178:56689";
-    public final static String NODE_ADDRESS_STANDBY = "http://172.104.191.125:48903";
-    //public final static double DIC_FEE = 0.00005;
-    public final static double DIC_FEE = 0.0001;
+    
 
 
     public final static String CREATE_ADDRESS = "getnewaddress";
     public final static String getaddresses = "getnewaddress";
 
-    //explorer
-    //public static String EXPLORER_URL1 = "http://172.104.191.125:45893/";
-    //public static String EXPLORER_URL2 = "http://172.104.191.125:48906/";
+    
 
     public static String EXPLORER_URL1 = "http://explorer.indexchain.io/";
     public static String EXPLORER_URL2 = "http://explorer.indexchain.io";
